@@ -1,24 +1,39 @@
+import java.util.ArrayList;
+
 public class CheckUserShot {
-    private String userShot;
-    private int[] settedShip;
+    private int userShot;
+    //private int[] settedShip;
+    private ArrayList<Integer> settedShipAr;
     private int damagedDeck = 0;
 
     String result;
 
-    public void setUserShot (String userShot) {
+    public void setUserShot (int userShot) {
         this.userShot = userShot;
     }
 
-    public void setShip (int[] settedShip) {
-        this.settedShip = settedShip;
+    public void setShip (ArrayList<Integer> settedShip) {
+        this.settedShipAr = settedShip;
     }
 
-     public String checkingUserShot(){
+    public String checkingUserShot(){
 
-        int shot = Integer.parseInt(userShot);
+
+        //int shot = Integer.parseInt(userShot);
         String result = "промазал";
 
+        int index = settedShipAr.indexOf(userShot);
+        if (index >= 0) {
+            settedShipAr.remove(index);
+            damagedDeck++;
+            result = "попал";
+        }
 
+        if (settedShipAr.isEmpty())
+        {
+            result= "потопил";
+        }
+        /*
         for (int cell : settedShip){
             if (shot==cell){
                 result = "попал";
@@ -27,14 +42,17 @@ public class CheckUserShot {
             }
         }
 
+
+
         if (settedShip.length==damagedDeck){
             result = "Потопил";
         }
-
+            */
          return result;
      }
 
      public int getDamagedDeck() {
+
         return damagedDeck;
      }
 

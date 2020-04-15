@@ -1,23 +1,43 @@
+import java.util.ArrayList;
+
 public class BattleField {
 
-    private int numOfFields = 10;
-    private int numOfDeckInShip = 3;
-    private int[] ship = new int[numOfDeckInShip];
+    private int numOfFields;
+    private int numOfDeckInShip;
+    private int[] ship;
 
-    private int maxNumOfFirstField = numOfFields - numOfDeckInShip;
 
-    public int[] getBattleField () {
-        int randPlaceOfShip = (int) ((Math.random() * maxNumOfFirstField)+1);
-        int shipsDeckZero=randPlaceOfShip;
+    public BattleField (int fields, int decks) {
+    this.numOfFields = fields;
+    this.numOfDeckInShip = decks;
+    }
 
+
+    public ArrayList<Integer> getBattleField () {
+        int maxNumOfFirstField = numOfFields - numOfDeckInShip;
+        int shipsDeckZero=(int) ((Math.random() * (maxNumOfFirstField))+1);
+
+
+        System.out.println("shipsDeckZero = "+shipsDeckZero);
         //проверка первой клетки. начало
-        System.out.println("randPlaceOfShip = "+randPlaceOfShip);
+        //System.out.println("randPlaceOfShip = "+randPlaceOfShip);
         //проверка первой клетки. конец
+        // System.out.println("numOfDeckInShip = "+numOfDeckInShip);
 
         for (int i=0;  i<=numOfDeckInShip-1; i++) {
-            ship[i]=shipsDeckZero;
+           ship[i]=shipsDeckZero;
             shipsDeckZero++;
+            ship[i]=2;
         }
-        return this.ship;
+
+
+
+        ArrayList<Integer> shipArLi = new ArrayList<>();
+        for (int x : ship){
+            shipArLi.add(x);
+        }
+        return shipArLi;
+
+
     }
 }

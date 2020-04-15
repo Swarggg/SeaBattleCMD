@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StartGame {
@@ -5,21 +6,24 @@ public class StartGame {
     *
     */
     public static void main(String[] args) {
-        BattleField ship = new BattleField(); //создаем поле и корабль на нем
+
+        BattleField ship = new BattleField(10,4); //создаем поле и корабль на нем
+
+        ArrayList<Integer> placedShip =  ship.getBattleField(); //устанавливаем корабль
+
         MakeShot userShot = new MakeShot(); //объект с методом ввода выстрела
         CheckUserShot checkUserShot = new CheckUserShot(); //объект проверяющий выстрел
 
         boolean shipAlive = true;
 
-        int[] placedShip =  ship.getBattleField(); //устанавливаем корабль
-
         /* //тест вывода корабля
         for (int i =0 ; i<placedShip.length; i++){
             System.out.println(placedShip[i]);
         }
-         */
+        */
 
-        while (shipAlive == true) {
+
+        while (shipAlive) {
 
             checkUserShot.setShip(placedShip); //передаем координаты корабля
             checkUserShot.setUserShot(userShot.getUserShot()); //передаем координаты выстрела
@@ -29,7 +33,7 @@ public class StartGame {
 
             System.out.println("Ты " + resultOfShot + ". Подбито "+checkUserShot.getDamagedDeck()+" палуб\n------------------------");
 
-            if (resultOfShot=="Потопил") {
+            if (resultOfShot=="потопил") {
                 shipAlive=false;
             }
 
