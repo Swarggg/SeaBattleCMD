@@ -2,11 +2,8 @@ import java.util.ArrayList;
 
 public class CheckUserShot {
     private int userShot;
-    //private int[] settedShip;
     private ArrayList<Integer> settedShipAr;
     private int damagedDeck = 0;
-
-    String result;
 
     public void setUserShot (int userShot) {
         this.userShot = userShot;
@@ -33,26 +30,11 @@ public class CheckUserShot {
         {
             result= "потопил";
         }
-        /*
-        for (int cell : settedShip){
-            if (shot==cell){
-                result = "попал";
-                damagedDeck++;
-                break;
-            }
-        }
 
-
-
-        if (settedShip.length==damagedDeck){
-            result = "Потопил";
-        }
-            */
          return result;
      }
 
      public int getDamagedDeck() {
-
         return damagedDeck;
      }
 
