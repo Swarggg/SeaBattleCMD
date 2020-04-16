@@ -10,6 +10,17 @@ public class StartGame {
         BattleField ship = new BattleField(10,4); //создаем поле и корабль на нем
 
         ArrayList<Integer> placedShip =  ship.getBattleField(); //устанавливаем корабль
+/*
+        public ArrayList<Integer> getBattleField () {
+            ArrayList<Integer> shipArLi = new ArrayList<>();
+            for (int x : ship){
+                shipArLi.add(x);
+            }
+            return shipArLi;
+            }
+*/
+
+
 
         MakeShot userShot = new MakeShot(); //объект с методом ввода выстрела
         CheckUserShot checkUserShot = new CheckUserShot(); //объект проверяющий выстрел
